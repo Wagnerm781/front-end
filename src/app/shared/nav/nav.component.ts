@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-login',
-  standalone: false,
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
-})
-export class LoginComponent implements OnInit{
-  userLoginOn:boolean=false;
+  @Component({
+    selector: 'app-nav',
+    standalone: false,
+    templateUrl: './nav.component.html',
+    styleUrl: './nav.component.css'
+  })
+  export class NavComponent implements OnInit {
+    userLoginOn:boolean=false;
 
     constructor() {}
     

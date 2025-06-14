@@ -1,0 +1,63 @@
+<div class="main_box">
+    <input type="checkbox" id="check">
+    <div class="btn_one">
+        <label for="check">
+            <i class="fas fa-bars"></i>
+        </label>
+    </div>
+    <div class="sidebar_menu">
+        <div class="logo">
+            <a href="#">Cursos</a>
+        </div>
+        <div class="btn_two">
+        <label for="check">
+            <i class="fas fa-times"></i>
+        </label>
+    </div>
+        <div class="menu">
+        <ul>
+            <li><a href="#"><i class="fa-brands fa-google-scholar"></i>
+                Matematica Discreta</a></li>
+            <li><a href="#"><i class="fa-solid fa-book"></i>
+                Formacion Cristiana</a></li>
+            <li><a href="#"><i class="fa-brands fa-google-scholar"></i>
+                Investigacion</a></li>
+            <li><a href="#"><i class="fa-solid fa-book"></i>
+                Desarrollo de aplicaciones</a></li>
+            <li><a href="#"><i class="fa-brands fa-google-scholar"></i>
+                Formulacion de Proyectos</a></li>
+            <li><a href="#"><i class="fa-solid fa-book"></i>
+                Talleres</a></li>
+            <li><a href="#"><i class="fa-brands fa-google-scholar"></i>
+                Arquitectura</a></li>
+            <li><a href="#"><i class="fa-solid fa-book"></i>
+                Contabilidad</a></li>
+        </ul>
+    </div>
+    <div class="social_media">
+        <!-- ------------------BOTONES PARA EL MODAL--------------------- -->
+       <button (click)="mostrarFormulario = true">Curso Nuevo</button>
+
+        
+
+        <button>Unirse</button>
+
+    </div>
+    <!-- --------------CONFIGURACION PARA EL MODAL------------------ -->
+<div class="modal" *ngIf="mostrarFormulario">
+  <div class="modal-contenido">
+    <h3>Crear Curso</h3>
+    <form (ngSubmit)="crearCurso()" #formulario="ngForm">
+      <input [(ngModel)]="nuevoCurso.nombre" name="nombre" placeholder="Nombre" required />
+      <input [(ngModel)]="nuevoCurso.descripcion" name="descripcion" placeholder="Descripción" required />
+      <div class="modal-acciones">
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="mostrarFormulario = false">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+
+</div>

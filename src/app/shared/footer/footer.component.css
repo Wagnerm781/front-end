@@ -1,0 +1,26 @@
+footer {
+    background-color: black;
+}
+
+.pie-pagina {
+    margin-top: 110px;
+    font-family: sans-serif;
+}
+
+.pie-texto {
+    text-align: center;
+    padding: 10px;
+    color: aliceblue;
+}
+
+.pie-icons {
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.pie-icons i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
