@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ListadoComponent } from './servidores/listado/listado.component';
 import { FormularioComponent } from './servidores/formulario/formulario.component';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/iniciar-sesion',pathMatch:'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'sidebar',component:SidebarComponent},
   {path:'servidores',component:ListadoComponent},
   {path:'crear-servidor',component:FormularioComponent},
+  {path:'sidenav',component:SidenavComponent},
 
 ];
 
@@ -21,3 +23,9 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponent = [
+  DashboardComponent, 
+  LoginComponent, 
+  SidebarComponent, 
+  SidebarComponent
+]

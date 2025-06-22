@@ -1,0 +1,139 @@
+<div class="discord-container">
+  <!-- Sidebar de servidores -->
+  <div class="servers">
+    <div class="logo">
+      <img src="https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg" alt="Discord" />
+    </div>
+    <div 
+      class="server-logo" 
+      *ngFor="let server of servers" 
+      (click)="selectServer(server)"
+    >
+      <span class="message__count">{{ server.messageCount }}</span>
+      <img [src]="server.avatar" [alt]="server.name" />
+    </div>
+  </div>
+
+  <!-- Sidebar principal -->
+  <div class="sidebar">
+    <!-- <div class="sidebar__top">
+      <input 
+        type="text" 
+        placeholder="Buscar o iniciar una conversacion"
+        [(ngModel)]="conversationSearch"
+      />
+    </div> -->
+
+    <div class="sidebar__icon">
+      <i class="fas fa-user-friends fa-lg"></i>
+      <span>Amigos</span>
+    </div>
+    
+    <div class="sidebar__icon" routerLink="/sidebar">
+      <i class="fas fa-compact-disc fa-lg"></i>
+      <span>Tienda</span>
+    </div>
+    
+    <div class="sidebar__users">
+      <div class="sidebar__usersHeader">
+        <div class="sidebar__header">
+          <h4>Mensajes directos</h4>
+        </div>
+        <i class="fas fa-plus sidebar__addUser" (click)="addUser()"></i>
+      </div>
+      
+      <div>
+        <div 
+          class="sidebar__user" 
+          *ngFor="let user of users"
+          (click)="selectUser(user.username)"
+          [class.active]="currentChatUser === user.username"
+        >
+          <div>
+            <span class="status" [class.online]="user.isOnline"></span>
+            <img [src]="user.avatar" alt="avatar" />
+          </div>
+          <h4>{{ user.username }}</h4>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sidebar__profile">
+      <div>
+        <span class="status online"></span>
+        <img [src]="currentUser.avatar" alt="avatar" />
+      </div>
+      <div class="sidebar__profileInfo">
+        <h3>{{ currentUser.username }}</h3>
+        <p>#1234</p>
+      </div>
+      <div class="sidebar__profileIcons">
+        <i class="fas fa-microphone" (click)="toggleMicrophone()"></i>
+        <!-- <i class="fas fa-headset" (click)="toggleHeadset()"></i> -->
+        <i class="fas fa-cog" (click)="openSettings()"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Área de chat -->
+  <div class="chat">
+    <div>
+      <div class="chatHeader">
+        <div class="chatHeader__left">
+          <span class="chatHeader__Dm"></span>
+          <h3>{{ currentChatUser }}</h3>
+        </div>
+        <div class="chatHeader__right">
+          <!-- <i class="fas fa-phone-volume fa-lg" (click)="makeCall()"></i>
+          <i class="fas fa-video fa-lg" (click)="startVideo()"></i>
+          <i class="fas fa-thumbtack fa-lg" (click)="pinMessage()"></i> -->
+          <i class="fas fa-user-plus fa-lg" (click)="addUserToChat()"></i>
+
+          <div class="search">
+            <input 
+              type="text" 
+              placeholder="search"
+              [(ngModel)]="searchQuery"
+            />
+            <i class="fas fa-search fa-lg"></i>
+          </div>
+          <!-- <i class="fas fa-inbox fa-lg" (click)="openInbox()"></i>
+          <i class="fas fa-question-circle fa-lg" (click)="openHelp()"></i> -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat__messages" #chatMessages>
+      <div class="message" *ngFor="let message of messages">
+        <img [src]="message.avatar" alt="avatar">
+        <div class="message__info">
+          <h4>
+            {{ message.username }} 
+            <span class="message__timestamp">{{ message.timestamp }}</span>
+          </h4>
+          <p>{{ message.content }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat__input">
+      <i class="fas fa-plus-circle fa-lg" (click)="addFile()"></i>
+      <form (ngSubmit)="sendMessage()">
+        <input 
+          class="sendMessage" 
+          type="text" 
+          placeholder="send message"
+          [(ngModel)]="messageInput"
+          name="messageInput"
+          (keypress)="onKeyPress($event)"
+        >
+        <button class="chat__inputButton" type="submit">Send</button>
+      </form>
+      <div class="chat__inputIcons">
+        <!-- <i class="fas fa-gift fa-lg" (click)="sendGift()"></i> -->
+        <i class="fas fa-file-image fa-lg" (click)="addImage()"></i>
+        <i class="fas fa-laugh fa-lg" (click)="addEmoji()"></i>
+      </div>
+    </div>
+  </div>
+</div>

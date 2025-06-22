@@ -3,25 +3,25 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
+// import { DashboardComponent } from './pages/dashboard/dashboard.component';
+// import { LoginComponent } from './auth/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
+// import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { ServidoresModule } from './servidores/servidores.module';
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DashboardComponent,
-    LoginComponent,
     NavComponent,
-    SidebarComponent,
+    SidenavComponent,
+    routingComponent
 
   ],
   imports: [

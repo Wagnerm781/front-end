@@ -51,5 +51,19 @@ export class SidebarComponent implements OnInit{
   });
 
   }
-   
+
+  imagenPreview: string | ArrayBuffer | null = null;
+
+onImagenSeleccionada(event: Event): void {
+  const archivo = (event.target as HTMLInputElement).files?.[0];
+  if (archivo) {
+    const lector = new FileReader();
+    lector.onload = () => {
+      this.imagenPreview = lector.result;
+    };
+    lector.readAsDataURL(archivo);
+  }
+}
+
+
 }

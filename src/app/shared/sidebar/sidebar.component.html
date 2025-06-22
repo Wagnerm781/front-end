@@ -16,7 +16,7 @@
     </div>
         <div class="menu">
         <ul>
-            <li><a href="#"><i class="fa-brands fa-google-scholar"></i>
+            <li><a href="/servidores"><i class="fa-brands fa-google-scholar"></i>
                 Matematica Discreta</a></li>
             <li><a href="#"><i class="fa-solid fa-book"></i>
                 Formacion Cristiana</a></li>
@@ -46,15 +46,31 @@
     <!-- --------------CONFIGURACION PARA EL MODAL------------------ -->
 <div class="modal" *ngIf="mostrarFormulario">
   <div class="modal-contenido">
-    <h3>Crear Curso</h3>
+    <h3>Crear Servidor</h3>
+
+    <div class="perfil-servidor">
+  <label for="inputImagen">
+    <div class="imagen-circular">
+      <img [src]="imagenPreview || 'https://via.placeholder.com/100?text=+'"
+           alt="Seleccionar avatar"/>
+    </div>
+  </label>
+  <input id="inputImagen" type="file" (change)="onImagenSeleccionada($event)" hidden />
+</div>
+
+<div class="llenar-formulario">
     <form (ngSubmit)="crearCurso()" #formulario="ngForm">
+      <label for="Nombre">NOMBRE DEL SERVIDOR</label>
       <input [(ngModel)]="nuevoCurso.nombre" name="nombre" placeholder="Nombre" required />
+      <label for="descripcion">DESCRIPCION</label>
       <input [(ngModel)]="nuevoCurso.descripcion" name="descripcion" placeholder="Descripción" required />
       <div class="modal-acciones">
-        <button type="submit">Guardar</button>
         <button type="button" (click)="mostrarFormulario = false">Cancelar</button>
+        <button type="submit">Guardar</button>
+        
       </div>
     </form>
+</div>
   </div>
 </div>
 
